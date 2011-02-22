@@ -1,5 +1,8 @@
 <h2>All Links</h2>
 
 <% @links.each do |link| %>
-  <h3><%= link_to link.title, link.url %></h3>
+  <h3><%= link_to link.title, link.url %> (<%= link.url[7..-1] %>)</h3>
+  <p>
+  posted by Anonymous <%= time_ago_in_words(link.created_at.to_date, Time.now) %> ago
+  </p>
 <% end %>

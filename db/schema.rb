@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110222171724) do
+ActiveRecord::Schema.define(:version => 20110222212110) do
 
   create_table "links", :force => true do |t|
     t.string   "url"
     t.string   "title"
-    t.integer  "up_votes"
-    t.integer  "down_vote"
+    t.integer  "up_votes",   :default => 0
+    t.integer  "down_vote",  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
