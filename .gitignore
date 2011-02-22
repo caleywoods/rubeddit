@@ -1,0 +1,17 @@
+.DS_Store
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+/.bundle
+/vendor/bundle
+db/*.sqlite3
+log/*
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+config/database.yml
+rerun.txt
+*.swp
+tmp/**/*
