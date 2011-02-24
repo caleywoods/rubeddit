@@ -1,10 +1,17 @@
 class LinksController < ApplicationController
+
+  before_filter :authenticate_user!, :except => :index 
+
   def index
     @links = Link.all
 
     respond_to do |format|
       format.html # index.html.erb
     end
+  end
+
+  def latest
+    @links = Link.latest
   end
 
   def show
