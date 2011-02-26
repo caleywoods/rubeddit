@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  def current_user
+    current_user = self.current_user.id
+  end
 end

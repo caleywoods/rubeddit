@@ -4,8 +4,6 @@ class Link < ActiveRecord::Base
                     :length => { :minimum => 5, :maximum => 100 }
 
   has_many :comments, :dependent => :destroy
-  has_many :up_votes
-  has_many :down_votes
   has_one :user
 
  def self.latest

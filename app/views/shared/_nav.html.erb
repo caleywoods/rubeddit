@@ -1,4 +1,15 @@
+<p>
+<% if user_signed_in? %>
+  <div id="signed-in">
+    You are signed is as <%= current_user.email %> // 
+    not you? <%= link_to 'sign out', destroy_user_session_path %>
+  </div>
+<% else %>
+  <div id="plz-sign-in">
+    Please <%= link_to 'sign in', new_user_session_path %>
+  </div>
+<% end %>
+</p>
 <div id="header">
   <h1>Rubeddit</h1>
-  <div id="submit-link"><%= link_to "Submit a Link", new_link_path %></div><!-- end of submit-link div -->
 </div><!-- end of header div -->

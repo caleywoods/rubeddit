@@ -1,3 +1,7 @@
+#header, #submit-link, #signed-in, #plz-sign-in {
+  font-family: Arial, sans-serif;
+}
+
 #header h1{
   display: inline;
   color: #3366FF;
@@ -5,4 +9,13 @@
 
 #submit-link {
   float: right;
+  font-size: 18px;
+  font-weight: bold;
 }
+
+#signed-in, #plz-sign-in {
+  font-size: 10px;
+  color: gray;
+  float: right;
+}
+
