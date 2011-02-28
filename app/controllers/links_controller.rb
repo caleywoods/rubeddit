@@ -28,6 +28,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(params[:link])
+    @link.user = User.current_user
 
     respond_to do |format|
       if @link.save
