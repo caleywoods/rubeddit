@@ -1,5 +1,5 @@
-<h2> <%= current_user.email %>'s Profile</h2>
+<h2> <%= @user.email %>'s Profile</h2>
 <h3> Submitted Links </h3>
-<% current_user.links.each do |link| %>
+<% @links.each do |link| %>
   <h4><%= link_to link.title, link.url %></h4>
 <% end %> 
