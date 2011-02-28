@@ -1,7 +1,7 @@
 <%= link_to 'Hot', '#' %> | <%= link_to 'Latest', links_latest_path %>
 <hr />
 <% @links.each do |link| %>
-  <h3><%= link_to link.title, link.url %> (<%= link.url[7..-1] %>)</h3>
+  <h3><%= link_to link.title, link.url %> (<%= url_takes_a_bath(link.url) %>)</h3>
   <p>
   submitted by <%= link.user.email %> <%= time_ago_in_words(link.created_at, Time.now) %> ago
   </p>
