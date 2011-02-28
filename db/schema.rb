@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110228042323) do
     t.integer  "down_vote",  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -36,8 +37,6 @@ ActiveRecord::Schema.define(:version => 20110228042323) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "submitted_by",                        :default => "Anonymous"
-    t.integer  "sub_user_id"
-    t.integer  "user_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

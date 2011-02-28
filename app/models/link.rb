@@ -6,8 +6,4 @@ class Link < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   belongs_to :user
 
- def self.latest
-  order('created_at ASC')
- end
-
 end

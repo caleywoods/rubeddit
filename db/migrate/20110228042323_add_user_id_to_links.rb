@@ -1,6 +1,6 @@
 class AddUserIdToLinks < ActiveRecord::Migration
   def self.up
-    change_table :users do |t|
+    change_table :links do |t|
       t.integer :user_id
     end
   end
