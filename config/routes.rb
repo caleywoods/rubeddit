@@ -7,7 +7,7 @@ Rubeddit::Application.routes.draw do
   get "links/index"
 
   resources :links
-  resources :home
+  resources :users
 
   root :to => "links#index"
 

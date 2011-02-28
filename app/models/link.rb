@@ -3,7 +3,6 @@ class Link < ActiveRecord::Base
   validates :title, :presence => true,
                     :length => { :minimum => 5, :maximum => 100 }
 
-  has_many :comments, :dependent => :destroy
-  belongs_to :user
+  belongs_to :user # foreign key - user_id
 
 end

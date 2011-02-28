@@ -28,12 +28,10 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(params[:link])
-    @link.title = params[:title]
-    @link.url = params[:url]
     @link.user = current_user
 
     respond_to do |format|
-      if @link.save
+      if @link.save!
         format.html { redirect_to(links_index_url, :notice => 'Link was successfully added.') }
       else
         format.html { render :action => "new" }
