@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
 
-  before_filter :authenticate_user!, :except => :index 
+  before_filter :authenticate_user!, :except => [:index, :show] 
 
   def index
     @links = Link.all
@@ -40,5 +40,11 @@ class LinksController < ApplicationController
         format.html { render :action => "new" }
       end
     end
+  end
+
+  def latest
+    @links = Link.latest
+
+    render :template => 'index'
   end
 end

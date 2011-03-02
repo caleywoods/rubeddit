@@ -1,21 +1,16 @@
 Rubeddit::Application.routes.draw do
   devise_for :users
-  match 'links/latest'
-
-  get "home/index"
-
   get "links/index"
 
-  resources :links, :has_many => :votes do
-    resources :votes
+  resources :links do
+    get :latest
+
     resources :comments
   end
 
   resources :users
 
   root :to => "links#index"
-
-  match "/links/:sort" => "links#date_sort"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

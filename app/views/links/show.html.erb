@@ -1,3 +1,9 @@
 <p>
-  <%= link_to @link.title, @link.url %>
+<h3><%= link_to @link.title, @link.url %></h3>
+</p>
+<p>
+submitted by:<%= link_to fu_robots(@link.user.email), @user%>
+</p>
+<p>
+<%= @link.comments %>
 </p>

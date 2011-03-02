@@ -7,6 +7,5 @@ class Link < ActiveRecord::Base
   has_many :votes, :as => :voteable
   has_many :comments
 
-  acts_as_voteable # required for vote_fu
-
+  scope :latest, order('created_at DESC').limit(10)
 end
