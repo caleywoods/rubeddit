@@ -10,13 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110302055322) do
+ActiveRecord::Schema.define(:version => 20110302171701) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "link_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "links", :force => true do |t|
     t.string   "url"
     t.string   "title"
-    t.integer  "up_votes",   :default => 0
-    t.integer  "down_vote",  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"

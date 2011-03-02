@@ -1,8 +1,10 @@
 <%= link_to 'Hot', '#' %> | <%= link_to 'Latest', links_latest_path %>
 <hr />
 <% @links.each do |link| %>
-  <%= render :partial => 'votes/link_vote' , :locals => {:link => @link} %>
-  <h3><%= link_to 'Up', @user.vote_for(@link) %>   <%= link_to link.title, link.url %> (<%= url_takes_a_bath(link.url) %>)</h3>
+  <h3><%= link.id %><%= link_to link.title, link.url %> (<%= url_takes_a_bath(link.url) %>)</h3>
+  <p>
+  <%= link.comments.count.to_i %> comments
+  </p>
   <p>
   submitted by <%= fu_robots(link.user.email) %> <%= time_ago_in_words(link.created_at, Time.now) %> ago
   </p>

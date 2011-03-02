@@ -7,7 +7,9 @@ class VotesController < ApplicationController
 
   def create
     @link = Link.find(params[:id])
-    
+    @voteable = find_voteable
+    @vote = @voteable.votes.build(params[:vote])
+
     respond_to do |format|
       if current_user.vote(@link, params[:vote])
         format.rjs  { render :action => "create", :vote => @vote }

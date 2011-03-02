@@ -8,6 +8,7 @@ Rubeddit::Application.routes.draw do
 
   resources :links, :has_many => :votes do
     resources :votes
+    resources :comments
   end
 
   resources :users
