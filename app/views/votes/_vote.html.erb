@@ -1,0 +1,12 @@
+	<%= link_to_remote "Up", 
+		:url => user_link_votes_path(link.user, link, :vote => :true, :format => :rjs), 
+		:method => :post
+	%> 
+	/
+	<%= link_to_remote "Down", 
+		:url => user_link_votes_path(link.user, link, :vote => :false, :format => :rjs), 
+		:method => :post
+ 	%> 
+
+Votes: <%= link.votes_for - link.votes_against %>
+
