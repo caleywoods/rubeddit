@@ -10,10 +10,6 @@ Rubeddit::Application.routes.draw do
     resources :votes
   end
 
-  resources :voteable do
-    resources :votes
-  end
-
   resources :users
 
   root :to => "links#index"
