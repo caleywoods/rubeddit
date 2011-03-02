@@ -1,6 +1,12 @@
 class VotesController < ApplicationController
+
+  def index
+    @voteable = find_voteable
+    @votes = @voteable.votes
+  end
+
   def create
-    @link = Link.find(params[:quote_id])
+    @link = Link.find(params[:id])
     
     respond_to do |format|
       if current_user.vote(@link, params[:vote])
@@ -24,4 +30,15 @@ class VotesController < ApplicationController
       format.xml  { render :xml => @vote }
     end
   end
+end
+
+private
+
+def find_voteable
+  params.each do |name, value|
+    if name =~ /(.+)_id$/
+      return $1.classify.constantize.find(value)
+    end
+  end
+  nil
 end

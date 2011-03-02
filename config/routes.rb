@@ -6,7 +6,7 @@ Rubeddit::Application.routes.draw do
 
   get "links/index"
 
-  resources :links do
+  resources :links, :has_many => :votes do
     resources :votes
   end
 
