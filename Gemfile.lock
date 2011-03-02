@@ -72,6 +72,7 @@ GEM
     tzinfo (0.3.24)
     warden (1.0.3)
       rack (>= 1.0.0)
+    xml-simple (1.0.14)
 
 PLATFORMS
   ruby
@@ -80,3 +81,4 @@ DEPENDENCIES
   devise
   rails (= 3.0.3)
   sqlite3-ruby
+  xml-simple

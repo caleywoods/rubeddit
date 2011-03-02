@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :links
+
+  acts_as_voter # required for vote_fu
+  has_karma :links # tracks karma for others voting on your submitted links
+
 end

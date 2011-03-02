@@ -5,4 +5,6 @@ class Link < ActiveRecord::Base
 
   belongs_to :user # foreign key - user_id
 
+  acts_as_voteable # required for vote_fu
+
 end

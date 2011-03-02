@@ -4,6 +4,7 @@ class LinksController < ApplicationController
 
   def index
     @links = Link.all
+    @user = current_user
 
     respond_to do |format|
       format.html # index.html.erb
