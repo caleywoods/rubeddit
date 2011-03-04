@@ -2,8 +2,32 @@
 <h3><%= link_to @link.title, @link.url %></h3>
 </p>
 <p>
-submitted by:<%= link_to fu_robots(@link.user.email), @user%>
+submitted by: <%= link_to fu_robots(@link.user.email), @link.user%>
 </p>
+<h3>Comments</h3>
 <p>
-<%= @link.comments %>
+<% @link.comments.each do |comment| %>
+  <div id="comment-container">
+    <p>
+    <%= time_ago_in_words(comment.created_at, Time.now) %> ago <%= comment.commenter %> said:
+    </p>
+    <p>
+    <%= comment.body %>
+    </p>
+</div>
+  <% end %>
 </p>
+<h2>Add a comment:</h2>
+<%= form_for([@link, @link.comments.build]) do |f| %>
+  <div id="commenter">
+  <%= f.label :commenter %><br />
+  <%= f.text_field :commenter, :value => @user.email %>
+</div>
+<div id="comment-body">
+  <%= f.label :body %><br />
+  <%= f.text_area :body %>
+</div>
+  <div id="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

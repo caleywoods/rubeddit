@@ -3,7 +3,7 @@ Rubeddit::Application.routes.draw do
   get "links/index"
 
   resources :links do
-    get :latest
+    get :latest, :on => :collection
 
     resources :comments
   end

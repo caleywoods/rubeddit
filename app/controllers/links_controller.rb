@@ -15,6 +15,7 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find(params[:id])
+    @user = current_user
 
     respond_to do |format|
       format.html # index.html.erb

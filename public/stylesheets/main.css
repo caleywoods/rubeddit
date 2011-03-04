@@ -1,21 +1,83 @@
-#header, #submit-link, #signed-in, #plz-sign-in {
+body {
+background: #AAA; /* old browsers */
+background: -moz-linear-gradient(top, #deefff 0%, #98bede 100%); /* firefox */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', endColorstr='#98bede',GradientType=0 ); /* ie */
+}
+
+#header, #signed-in, #plz-sign-in {
   font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+#header {
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 2px 3px 5px #888;
+  box-shadow: 10px 10px 5px #888;
+  -webkit-border-radius: 2px;
+  background: #45484d; /* old browsers */
+  background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* ie */
 }
 
 #header h1{
   display: inline;
-  color: #3366FF;
+  color: #AAA;
 }
 
-#submit-link {
-  float: right;
-  font-size: 18px;
+.link_title {
+  font-size: 22px;
+  margin: 0px
+}
+
+.link_title a {
+  text-decoration: none;
+  color: blue;
+}
+
+.link_preview {
+  font-size: 12px;
+}
+
+.link_submitter {
+  font-size: 12px;
+  margin: 1px;
+}
+
+.link_comments {
+  font-size: 12px;
+  text-decoration: bold;
+}
+
+.link_comments a {
+  text-decoration: none;
+}
+
+.link_comments a:hover {
+  text-decoration: underline;
+}
+
+.submit-link {
+  color: #AAA;
+  width: 150px;
+  height: 30px;
+  font-size: 24px;
   font-weight: bold;
+  -webkit-border-radius: 10px;
+  background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* ie */
+}
+
+.submit-link a {
+  text-align: center;
+  text-decoration: none;
+  color: #AAA;
 }
 
 #signed-in, #plz-sign-in {
-  font-size: 10px;
+  font-size: 11px;
   color: gray;
   float: right;
 }
-
