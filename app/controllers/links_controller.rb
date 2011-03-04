@@ -46,6 +46,6 @@ class LinksController < ApplicationController
   def latest
     @links = Link.latest
 
-    render :template => 'index'
+    render :action => 'index'
   end
 end

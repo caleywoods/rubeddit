@@ -1,3 +1,4 @@
+<div id="header">
 <p>
 <% if user_signed_in? %>
   <div id="signed-in">
@@ -10,10 +11,8 @@
   </div>
 <% end %>
 </p>
-<div id="header">
   <h1>Rubeddit</h1>
   <div id="sorting">
     <%= link_to 'Hot', '#' %> | <%= link_to 'Latest', latest_links_path%>
   </div>
 </div><!-- end of header div -->
-<hr />

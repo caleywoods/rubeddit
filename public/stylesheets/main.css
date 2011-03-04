@@ -11,6 +11,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', end
 }
 
 #header {
+  height: 80px;
   -moz-box-shadow: 10px 10px 5px #888;
   -webkit-box-shadow: 2px 3px 5px #888;
   box-shadow: 10px 10px 5px #888;
@@ -22,7 +23,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', end
 }
 
 #header h1{
+  position: relative;
+  top: 10px;
   display: inline;
+  color: #AAA;
+}
+
+#sorting a {
+  position: relative;
+  top: 15px;
+  text-decoration: none;
+  color: blue;
+}
+
+#sorting a:hover {
+  text-decoration: underline;
   color: #AAA;
 }
 
@@ -80,4 +95,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', end
   font-size: 11px;
   color: gray;
   float: right;
+}
+
+#links_wrapper {
+  position: absolute;
+  top: 110px;
 }
