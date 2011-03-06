@@ -4,20 +4,21 @@
 <p>
 submitted by: <%= link_to fu_robots(@link.user.email), @link.user%>
 </p>
-<h3>Comments</h3>
+<h3 id="word-comment">Comments</h3>
 <p>
 <% @link.comments.each do |comment| %>
   <div id="comment-container">
-    <p>
+    <p id="comment-author">
     <%= time_ago_in_words(comment.created_at, Time.now) %> ago <%= comment.commenter %> said:
     </p>
-    <p>
+    <p id="comment-body">
     <%= comment.body %>
     </p>
 </div>
   <% end %>
-</p>
-<h2>Add a comment:</h2>
+  </p>
+  <div id="add-comment" onclick="showCommentDiv('this');>
+  <a href="#" id="add-comment" onclick="showCommentDiv('this');"><h2>Add a comment:</h2></a>
 <%= form_for([@link, @link.comments.build]) do |f| %>
   <div id="commenter">
   <%= f.label :commenter %><br />
@@ -30,4 +31,5 @@ submitted by: <%= link_to fu_robots(@link.user.email), @link.user%>
   <div id="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>

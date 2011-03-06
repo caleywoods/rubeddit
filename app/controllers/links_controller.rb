@@ -48,4 +48,30 @@ class LinksController < ApplicationController
 
     render :action => 'index'
   end
-end
+
+  def upvote
+    @link = Link.find(params[:id])
+    @user = User.find(current_user.id)
+    @vote = @link.votes.create(params[:link])
+    @vote.link = @link
+    @vote.user = @user
+    
+    respond_to do |format|
+      if @vote.save!
+        format.html { redirect_to(links_path, :notice => 'Your vote was added.') }
+      else
+        format.html { redirect_to(links_path, :notice => 'There was an error, please try again later.') }
+      end
+      
+    end
+  end
+
+  def downvote
+    @link = Link.find(params[:id])
+    @vote.user = current_user
+    @vote = @link.votes.create(params[:link])
+    @vote.link = @link
+
+  end
+
+  end
