@@ -5,7 +5,7 @@ class LinksController < ApplicationController
   def index
     @links = Link.find(:all, 
                        :joins => 'LEFT JOIN votes on votes.link_id = links.id',
-                       :group => 'links.id, links.url',
+                       :group => 'links.id, links.url, links.title',
                        :order => 'SUM(votes.score) DESC')
 
     respond_to do |format|
