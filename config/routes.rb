@@ -4,6 +4,7 @@ Rubeddit::Application.routes.draw do
 
   resources :links do
     get :latest, :on => :collection
+    get :hot, :on => :collection
 
     member do
       put 'upvote'
@@ -11,7 +12,7 @@ Rubeddit::Application.routes.draw do
     end
 
     resources :comments
-    resources :votes
+    resources :votes 
   end
 
   resources :users

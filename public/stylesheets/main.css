@@ -97,9 +97,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', end
   float: right;
 }
 
+.notice {
+  position:absolute;
+  top: 90px;
+}
+
 #links_wrapper {
   position: absolute;
-  top: 110px;
+  top: 125px;
 }
 
 #comment-author {

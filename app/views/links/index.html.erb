@@ -1,6 +1,6 @@
 <div id="links_wrapper">
 <% @links.each do |link| %>
-  <h3 class="link_title">[<%= link.votes.count %>] <%= link_to 'up', upvote_link_path(link), :method => :put %> <%= link_to link.title, link.url %> <span class="link_preview">(<%= url_takes_a_bath(link.url) %>)</span></h3>
+  <h3 class="link_title">[<%= link.votes.sum(:score) %>] <%= link_to image_tag('up_arrow.gif', :size => '25x25'), upvote_link_path(link), :method => :put %><%= link_to image_tag('down_arrow.gif', :size => '25x25'), downvote_link_path(link), :method => :put %>  <%= link_to link.title, link.url %> <span class="link_preview">(<%= url_takes_a_bath(link.url) %>)</span></h3>
   <p class="link_submitter">
     submitted <%= time_ago_in_words(link.created_at, Time.now) %> ago by <%= link_to fu_robots(link.user.email), link.user %> 
   </p>

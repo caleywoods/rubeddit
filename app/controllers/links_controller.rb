@@ -3,8 +3,10 @@ class LinksController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show] 
 
   def index
-    @links = Link.all
-    @user = current_user
+    @links = Link.find(:all, 
+                       :joins => 'LEFT JOIN votes on votes.link_id = links.id',
+                       :group => 'link_id',
+                       :order => 'SUM(votes.score) DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -49,12 +51,20 @@ class LinksController < ApplicationController
     render :action => 'index'
   end
 
+  def talked_about
+    @links = Link.find(:all,
+                       :joins => :comments,
+                       :group => 'link_id',
+                       :order => 'comments.count DESC')
+  end
+
   def upvote
     @link = Link.find(params[:id])
     @user = User.find(current_user.id)
     @vote = @link.votes.create(params[:link])
-    @vote.link = @link
     @vote.user = @user
+    @vote.link = @link
+    @vote.score = 1
     
     respond_to do |format|
       if @vote.save!
@@ -68,9 +78,20 @@ class LinksController < ApplicationController
 
   def downvote
     @link = Link.find(params[:id])
-    @vote.user = current_user
-    @vote = @link.votes.create(params[:link])
+    @user = User.find(current_user.id)
+    @vote = @link.votes.build(params[:link])
+    @vote.user = @user
     @vote.link = @link
+    @vote.score = -1
+        
+    respond_to do |format|
+      if @vote.save!
+        format.html { redirect_to(links_path, :notice => 'Your vote was added.') }
+      else
+        format.html { redirect_to(links_path, :notice => 'There was an error, please try again later.') }
+      end
+      
+    end
 
   end
 

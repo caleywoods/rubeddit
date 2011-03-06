@@ -6,10 +6,19 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessor :user_id
   has_many :links
+  has_many :votes, :through => :links
 
-  def karma(user_id)
-    Vote.where(@user.id => user_id).count
+  def karma
+    self.votes.sum(:score)
   end
+
+  def positive_votes
+    self.votes.sum(:score, :conditions => 'score > 0')
+  end
+  
+  def negative_votes
+    self.votes.sum(:score, :conditions => 'score < 0')
+  end
+
 end

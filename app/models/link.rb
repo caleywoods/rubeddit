@@ -8,4 +8,9 @@ class Link < ActiveRecord::Base
   has_many :comments
 
   scope :latest, order('created_at DESC').limit(10)
+  scope :hot, lambda {
+    joins('join votes on votes.link_id = link_id').
+    order('votes.score DESC').
+    limit(5)
+  }
 end
