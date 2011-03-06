@@ -1,8 +1,10 @@
 class CleanUpSchmea < ActiveRecord::Migration
   def self.up
     drop_table :voteables
-    remove_column :links, :down_votes
+    change_table :links do |t|
+    t.remove_column :down_votes
     end
+  end
 
   def self.down
     create_table :voteables do |t|
