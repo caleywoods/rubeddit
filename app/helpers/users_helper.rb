@@ -4,4 +4,5 @@ module UsersHelper
     email =~ (/(.+)[@]/)
     $1
   end
+
 end
