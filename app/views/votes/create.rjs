@@ -1,1 +1,0 @@
-page.replace_html "votes_#{@link.id}", :partial => "link_vote", :locals => {:link => @link}
