@@ -6,7 +6,7 @@ class LinksController < ApplicationController
     @links = Link.find(:all, 
                        :joins => 'LEFT JOIN votes on votes.link_id = links.id',
                        :group => 'links.id, links.url, links.title, links.created_at, links.updated_at, links.user_id',
-                       :order => 'SUM(votes.score) DESC')
+                       :order => 'SUM(COALESCE(votes.score, 0)) DESC')
 
     respond_to do |format|
       format.html # index.html.erb
