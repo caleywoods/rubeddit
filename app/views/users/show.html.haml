@@ -1,0 +1,8 @@
+%h2 #{@user.email}'s Profile
+%h3 #{@user.karma} Karma
+%h3 Submitted Links
+- if @user.links.blank?
+  %h4 This user hasn't submmited any links!
+- else
+  - @user.links.each do |link|
+    %h4 [#{link.votes.sum(:score)}] #{link_to link.title, link.url}

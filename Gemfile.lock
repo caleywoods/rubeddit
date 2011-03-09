@@ -36,6 +36,7 @@ GEM
       warden (~> 1.0.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    haml (3.0.25)
     i18n (0.5.0)
     mail (2.2.15)
       activesupport (>= 2.3.6)
@@ -72,13 +73,12 @@ GEM
     tzinfo (0.3.24)
     warden (1.0.3)
       rack (>= 1.0.0)
-    xml-simple (1.0.14)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   devise
+  haml
   rails (= 3.0.3)
   sqlite3-ruby
-  xml-simple
