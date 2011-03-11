@@ -1,0 +1,15 @@
+= form_for([@link, @link.comments.build]) do |f|
+  #add-comment-commenter
+    = f.label :commenter
+    - if @user.blank?
+      = f.text_field :commenter
+    - else
+      = f.text_field :commenter, :value => @user.email.to_s
+
+  #add-comment-body
+    = f.label :body
+    ~ f.text_area :body
+
+  #add-comment-actions
+    = f.submit
+
