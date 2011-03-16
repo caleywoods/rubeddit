@@ -5,6 +5,7 @@ Rubeddit::Application.routes.draw do
   resources :links do
     get :latest, :on => :collection
     get :hot, :on => :collection
+    get :talked_about, :on => :collection
 
     member do
       put 'upvote'

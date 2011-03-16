@@ -11,6 +11,16 @@ gem 'devise'
 
 gem 'haml'
 
+gem 'googl'
+
+group :test, :development do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'autotest'
+  gem 'autotest-growl'
+  gem 'factory_girl_rails'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

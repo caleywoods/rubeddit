@@ -8,7 +8,7 @@
 </head>
 <body style="background: padding: 0; margin:0;">
 <%= render :partial => 'shared/nav' %>
-<p class="notice"><%= notice %></p>
+<p class="notice"><%= flash[:notice] %></p>
 <p class="alert"><%= alert %></p>
 
 <%= yield %>

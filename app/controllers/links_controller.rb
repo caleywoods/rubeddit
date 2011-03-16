@@ -38,7 +38,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save!
-        format.html { redirect_to(links_index_url, :notice => 'Link was successfully added.') }
+        format.html { redirect_to(links_index_url, flash[:notice] => 'Link was successfully added.') }
       else
         format.html { render :action => "new" }
       end
@@ -52,10 +52,8 @@ class LinksController < ApplicationController
   end
 
   def talked_about
-    @links = Link.find(:all,
-                       :joins => :comments,
-                       :group => 'link_id',
-                       :order => 'comments.count DESC')
+    @links = Link.find(:all)
+    render :action => 'index'
   end
 
   def upvote
@@ -68,7 +66,7 @@ class LinksController < ApplicationController
     
     respond_to do |format|
       if @vote.save!
-        format.html { redirect_to(links_path, :notice => 'Your vote was added.') }
+        format.html { redirect_to(links_path, flash[:notice] => 'Your vote was added.') }
       else
         format.html { redirect_to(links_path, :notice => 'There was an error, please try again later.') }
       end

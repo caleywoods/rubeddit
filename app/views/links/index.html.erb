@@ -6,3 +6,10 @@
 <% end %>
 <div class="submit-link"><%= link_to "Submit a Link", new_link_path %></div><!-- end of submit-link div -->
 </div><!-- end of links_wrapper div -->
+
+<!-- 
+haml code for future reference
+
+#links-wrapper
+  - @links.each do |link|
+    %h3.link_title [#{ link.votes.sum(:score) }] #{ link_to image_tag('up_arrow.gif', 
