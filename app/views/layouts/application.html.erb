@@ -2,16 +2,18 @@
 <html>
 <head>
   <title>Rubeddit</title>
-  <%= stylesheet_link_tag :all %>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body style="background: padding: 0; margin:0;">
+  <div class="container">
 <%= render :partial => 'shared/nav' %>
 <p class="notice"><%= flash[:notice] %></p>
 <p class="alert"><%= alert %></p>
 
 <%= yield %>
+  </div>
 
 </body>
 </html>
