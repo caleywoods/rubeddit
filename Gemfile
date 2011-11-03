@@ -23,6 +23,14 @@ group :test, :development do
   gem 'factory_girl_rails'
 end
 
+group :assets do
+  gem 'sass-rails', " ~> 3.1.0"
+  gem 'coffee-rails', " ~> 3.1.0"
+  gem 'uglifier'
+end
+
+gem 'jquery-rails'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
