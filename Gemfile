@@ -13,6 +13,8 @@ gem 'haml'
 
 gem 'googl'
 
+gem 'therubyracer'
+
 group :test, :development do
   gem 'rspec'
   gem 'rspec-rails'
