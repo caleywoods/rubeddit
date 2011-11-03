@@ -19,10 +19,10 @@ describe LinksController do
     response.should render_template('layouts/application')
   end
 
-  it "should let you login" do
+  it "lets you login" do
     @user = Factory(:user)
     sign_in @user #sign_in is a helper provided by Devise
-    
+
     response.should be_success
   end
 
