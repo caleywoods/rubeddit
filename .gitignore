@@ -2,6 +2,7 @@
 *.rbc
 *.sassc
 .sass-cache
+.sass-cache/
 capybara-*.html
 /.bundle
 /vendor/bundle
