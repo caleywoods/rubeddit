@@ -12,7 +12,6 @@ log/*
 /coverage/
 /spec/tmp/*
 **.orig
-config/database.yml
 rerun.txt
 *.swp
 tmp/**/*
