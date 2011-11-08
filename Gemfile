@@ -5,8 +5,6 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
-
 gem 'devise'
 
 gem 'haml'
@@ -25,6 +23,7 @@ group :test, :development do
   gem 'autotest'
   gem 'autotest-growl'
   gem 'factory_girl_rails'
+  gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
 group :assets do
