@@ -79,6 +79,7 @@ GEM
     multi_json (1.0.3)
     multi_xml (0.4.1)
     orm_adapter (0.0.5)
+    pg (0.11.0)
     polyglot (0.3.3)
     rack (1.3.5)
     rack-cache (1.0.3)
@@ -160,6 +161,7 @@ DEPENDENCIES
   googl
   haml
   jquery-rails
+  pg
   rails (= 3.1.0)
   rspec
   rspec-rails
