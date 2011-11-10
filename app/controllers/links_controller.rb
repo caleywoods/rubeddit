@@ -38,7 +38,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save!
-        format.html { redirect_to(links_index_url, flash[:notice] => 'Link was successfully added.') }
+        format.html { redirect_to links_index_url, :flash => { :success => "Succesfully added #{@link.title}!" } }
       else
         format.html { render :action => "new" }
       end

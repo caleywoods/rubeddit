@@ -1,18 +1,13 @@
 <div id="header">
-<p>
-<% if user_signed_in? %>
-  <div id="signed-in">
-    You are signed is as <%= current_user.email %> // 
-    not you? <%= link_to 'sign out', destroy_user_session_path %>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="container">
+      <h3><a class="brand" href="http://rubeddit.herokuapp.com">Rubeddit</a></h3>
+      <ul class="nav">
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><%= link_to "Latest Links", latest_links_path %><li>
+      </ul>
+    </div>
   </div>
-<% else %>
-  <div id="plz-sign-in">
-    Please <%= link_to 'sign in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %>
-  </div>
-<% end %>
-</p>
-  <h1>Rubeddit</h1>
-  <div id="sorting">
-    <%= link_to 'Hot', root_path %> <span class="pipe">|</span> <%= link_to 'Latest', latest_links_path %> <span class="pipe">|</span> <%= link_to 'Most Talked About', talked_about_links_path %>
-  </div>
+</div>
 </div><!-- end of header div -->

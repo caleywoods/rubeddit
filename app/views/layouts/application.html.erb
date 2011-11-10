@@ -10,11 +10,19 @@
 <body style="background: padding: 0; margin:0;">
   <div class="container">
 <%= render :partial => 'shared/nav' %>
-<p class="notice"><%= flash[:notice] %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
-  </div>
+<% if flash[:success] %>
+  <p class="alert-message success"><%= flash[:success] %></p>
+<% end %>
+<% if notice %>
+  <p class="alert-message info"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert-message warning"><%= alert %></p>
+<% end %>
+<div class="content">
+  <%= yield %>
+</div>
+</div>
 
 </body>
 </html>
