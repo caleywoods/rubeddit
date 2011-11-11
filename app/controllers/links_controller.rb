@@ -56,10 +56,11 @@ class LinksController < ApplicationController
     @user = current_user
     @link = Link.find(params[:id])
 
-    @user.vote_exclusively_for(@link)
-
-    respond_to do |format|
-      format.html {redirect_to links_index_url, :flash => { :success => "Voted that bitch up." } }
+    if @user.voted_for?(@link)
+      redirect_to links_index_url, :flash => { :notice => "You done did that." }
+    else
+      @user.vote_exclusively_for(@link)
+      redirect_to links_index_url, :flash => { :success => "Voted that bitch up." }
     end
   end
 
@@ -67,10 +68,11 @@ class LinksController < ApplicationController
     @user = current_user
     @link = Link.find(params[:id])
 
-    @user.vote_exclusively_against(@link)
-
-    respond_to do |format|
-      format.html {redirect_to links_index_url, :flash => { :success => "Down with the man." } }
+    if @user.voted_for?(@link)
+      @user.vote_exclusively_against(@link)
+      redirect_to links_index_url, :flash => { :success => "Down with the man." }
+    else
+      redirect_to links_index_url, :flash => { :notice => "You done did that." }
     end
   end
 

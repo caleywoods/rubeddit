@@ -33,9 +33,13 @@ describe LinksController do
   end
 
   it "doesn't let guests submit links" do
-    sign_out @user
+    if @user
+      sign_out @user
+    end
+
     @link = Link.create(:title => 'test', :url => 'http://test.com')
 
     response.should_not be_success
   end
+
 end
