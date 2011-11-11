@@ -1,12 +1,17 @@
 <h2>Forgot your password?</h2>
 
+<div class="form-stacked">
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
-
+  <% unless @user.errors.blank? %>
+  <div class="alert-message error block-message">
+    <%= devise_error_messages! %>
+  </div>
+<% end %>
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
 
-  <p><%= f.submit "Send me reset password instructions" %></p>
+  <p><%= f.submit "Send me reset password instructions", :class => "btn" %></p>
 <% end %>
+</div>
 
 <%= render :partial => "devise/shared/links" %>

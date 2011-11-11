@@ -11,6 +11,9 @@ gem 'haml'
 
 gem 'googl'
 
+gem 'will_paginate', '~> 3.0'
+
+gem 'thumbs_up'
 
 group :production do
   gem 'thin'

@@ -1,4 +1,6 @@
 class Link < ActiveRecord::Base
+  acts_as_voteable
+
   before_save(:on => :create) do
    self.short_url = Googl.shorten(self.url).short_url #from Googl gem
   end
@@ -13,8 +15,8 @@ class Link < ActiveRecord::Base
 
   scope :latest, order('created_at DESC').limit(10)
 
-  def to_param
-    "#{id}-#{title.parameterize}"
-  end
+  #def to_param
+    #"#{id}-#{title.parameterize}"
+  #end
 
 end

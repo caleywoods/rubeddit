@@ -1,8 +1,12 @@
 <h2>Sign up</h2>
 
+<div class="form-stacked">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
+  <% unless @user.errors.blank? %>
+  <div class="alert-message error block-message">
+    <%= devise_error_messages! %>
+  </div>
+<% end %>
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
 
@@ -12,7 +16,7 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
-  <p><%= f.submit "Sign up" %></p>
+  <p><%= f.submit "Sign up", :class => "btn" %></p>
 <% end %>
-
+</div>
 <%= render :partial => "devise/shared/links" %>

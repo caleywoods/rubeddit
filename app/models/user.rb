@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_voter
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -16,7 +18,7 @@ class User < ActiveRecord::Base
   def positive_votes
     self.votes.sum(:score, :conditions => 'score > 0')
   end
-  
+
   def negative_votes
     self.votes.sum(:score, :conditions => 'score < 0')
   end

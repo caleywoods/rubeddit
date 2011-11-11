@@ -1,9 +1,11 @@
 <%= form_for(@link) do |link_form| %>
+  <div class="stacked-form">
   <%= link_form.label :title %><br />
   <%= link_form.text_field :title, :autofocus => true%><br />
 
   <%= link_form.label :url %><br />
   <%= link_form.text_field :url, :value => 'http://' %><br />
 
-  <%= link_form.submit :value => 'Add Link' %>
+  <%= link_form.submit :value => 'Submit Link', :class => "btn" %>
+</div>
 <% end %>

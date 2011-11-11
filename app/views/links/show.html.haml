@@ -10,12 +10,13 @@
 #link-show-comment-header
   %h3 Comments
 
-#comment-container
-  - @link.comments.each do |comment|
-    #comment-author
-      #{ time_ago_in_words(comment.created_at, Time.now) } ago #{ comment.commenter } said: 
-    #comment-body
-      = comment.body
+.clearfix
+  #comment-container
+    - @link.comments.each do |comment|
+      #comment-author
+        #{ time_ago_in_words(comment.created_at, Time.now) } ago #{ comment.commenter } said: 
+      #comment-body
+        = comment.body
 
 #add-comment-container
   #add-comment-header

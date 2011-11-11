@@ -1,10 +1,12 @@
 <div id="links_wrapper">
 <% @links.each do |link| %>
-  <h3 class="link_title">[<%= link.votes.sum(:score) %>] <%= link_to image_tag('up_arrow.gif', :size => '25x25'), upvote_link_path(link), :method => :put %><%= link_to image_tag('down_arrow.gif', :size => '25x25'), downvote_link_path(link), :method => :put %>  <%= link_to link.title, link.url %> <span class="link_preview">(<%= url_takes_a_bath(link.url) %>)</span> <span class="link_comments"><%= link_to pluralize(link.comments.count.to_s, 'comment'), link %></h3>
+  <p>[<%= link.plusminus %>]<%= link_to image_tag('up_arrow.gif', :size => '25x25'), vote_up_link_path(link), :method => :post %><%= link_to image_tag('down_arrow.gif', :size => '25x25'), vote_down_link_path(link), :method => :post %>  <%= link_to link.title, link.url %> <span class="link_preview">(<%= url_takes_a_bath(link.url) %>)</span> <span class="link_comments"><%= link_to pluralize(link.comments.count.to_s, 'comment'), link %></p>
   <p class="link_submitter">
     submitted <%= time_ago_in_words(link.created_at, Time.now) %> ago by <%= link_to fu_robots(link.user.email), link.user %>
 <% end %>
-<div class="submit-link"><%= link_to "Submit a Link", new_link_path %></div><!-- end of submit-link div -->
+<div class="submit-link">
+  <%= link_to "Submit a Link", new_link_path, :class => "btn large" %>
+</div><!-- end of the submit-link div -->
 </div><!-- end of links_wrapper div -->
 
 <!-- 
